@@ -7,7 +7,7 @@ export class BaseController{
 
     errRes(err: any, res: Response, message = "Server Error", status = 500){
         if(process.env.NODE_ENV === "development"){
-            res.status(status).json({error: message, err});
+            res.status(status).json({error: message, details: err.originalMessage});
         }else{
             res.status(status).json({error: message});
         }

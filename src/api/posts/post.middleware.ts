@@ -10,6 +10,14 @@ const postCreateValidator = [
         .withMessage('Content is required, at least 20 characters long')
 ];
 
+const postGetValidator = [
+    check('id')
+        .not()
+        .isEmpty()
+        .withMessage('Id is required'),
+];
+
 export {
-    postCreateValidator
+    postCreateValidator,
+    postGetValidator
 }
