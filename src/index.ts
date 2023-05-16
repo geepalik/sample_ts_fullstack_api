@@ -3,30 +3,16 @@ import bodyParser from 'body-parser';
 import cors from "cors";
 import dbLoader from "./db/dbConnection";
 import config from "./config";
+import rootRouter from './routes';
 
 const app: Application = express();
 
 app.use(cors({origin: config.CLIENT_URL}));
-
-/*
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/', async(req: Request, res: Response): Promise<Response> => {
-    return res.status(200).send({
-        message: 'Hello World!',
-    })
-})
-
-app.post("/post", async (req: Request, res: Response): Promise<Response> => {
-    console.log(req.headers);
-    return res.status(200).send({
-      message: "Hello World from post!",
-    });
-  });
-
-const PORT = 3000;
-*/
+//routes
+app.use('/', rootRouter);
 
 const initApp = async () => {
     try{
