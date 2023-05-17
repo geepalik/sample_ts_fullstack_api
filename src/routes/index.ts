@@ -1,7 +1,7 @@
 import express, { Router } from "express";
-import postRoutes from "../api/posts/post.routes";
+import weatherRoutes from "../api/weather/weather.routes";
 
 const rootRouter: Router = express.Router();
-rootRouter.use('/api', postRoutes);
+rootRouter.use('/api', weatherRoutes);
 
 export default rootRouter;

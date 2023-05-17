@@ -10,20 +10,26 @@ if(envFound.error){
 interface ENV {
     PORT: number | undefined;
     CLIENT_URL: string | undefined;
+    WEATHER_API_URL: string | undefined;
     DATABASE_URL: string | undefined;
+    DATABASE_CONTAINER_URL: string | undefined;
 }
 
 interface Config {
     PORT: number;
     CLIENT_URL: string;
+    WEATHER_API_URL: string;
     DATABASE_URL: string;
+    DATABASE_CONTAINER_URL: string;
 }
 
 const getConfig = (): ENV => {
     return {
       PORT: process.env.PORT ? Number(process.env.PORT) : undefined,
       CLIENT_URL: process.env.CLIENT_URL,
+      WEATHER_API_URL: process.env.WEATHER_API_URL,
       DATABASE_URL: process.env.DATABASE_URL,
+      DATABASE_CONTAINER_URL: process.env.DATABASE_CONTAINER_URL,
     };
   };
 
