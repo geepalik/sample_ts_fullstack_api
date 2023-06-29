@@ -30,7 +30,8 @@ export class WeatherService{
             const totalWeatherData = await Promise.all(weatherPromises);
 
             const formattedData: WeatherDataDto = this.formatData(totalWeatherData);
-            return this.weatherModel.createWeatherData(formattedData);
+            await this.weatherModel.createWeatherData(formattedData);
+            return formattedData;
         }catch(error: any){
             throw new CustomErrors(`Could not get or save data for one or more of the cities: ${cities}`, error.message, 500);
         }
